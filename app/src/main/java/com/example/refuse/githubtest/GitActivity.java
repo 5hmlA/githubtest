@@ -1,17 +1,31 @@
 package com.example.refuse.githubtest;
 
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.Window;
+import android.view.WindowManager;
+import android.widget.TextView;
+
+import com.example.refuse.githubtest.utills.MyTextUtills;
 
 
 public class GitActivity extends ActionBarActivity {
 
+    private TextView tv;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Window window = getWindow();
+        window.setFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS,WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+        window.setFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION,WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION);
         setContentView(R.layout.activity_git);
+        tv = (TextView) findViewById(R.id.tv);
+        MyTextUtills utills = new MyTextUtills();
+        tv.setText(utills.getValue());
     }
 
     @Override
